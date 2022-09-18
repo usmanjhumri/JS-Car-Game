@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.hide{
+    display: none;
+}
+.gameArea{
+    /* position: relative; */
+}
+#car{
+    width: 50px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    left: 80px;
+    bottom: 120px;
+}
