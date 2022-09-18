@@ -8,13 +8,43 @@
     display: none;
 }
 .gameArea{
-    /* position: relative; */
+    position: relative;
+    width: 420px;
+    height: 90vh;
+    background: #3b3b3b;
+    margin: auto;
+    /* overflow: hidden; */
 }
 #car{
     width: 50px;
     height: 100px;
     background: red;
     position: absolute;
-    left: 350px;
-    bottom: 120px;
+    /* left: 350px; */
+    bottom: 30px;
+}
+#roadline{
+    width: 14px;
+    height: 100px;
+    background: white;
+    margin: 1.5rem auto;
+}
+
+.btn{
+    padding: 2rem 4rem;
+    margin: auto;
+    color: #3b3b3b;
+    background: goldenrod;
+    border-radius: 15px;
+    font-size: x-large;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: capitalize;
+    cursor: pointer;
+
+}
+.startScreen{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

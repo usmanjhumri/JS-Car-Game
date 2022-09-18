@@ -2,7 +2,8 @@ const heading = document.getElementById('heading');
 heading.style.textAlign = 'center';
 heading.style.textTransform = 'capitalize';
 heading.style.color = '#4c6897'
-heading.style.marginTop = '2rem'
+// heading.style.marginTop = '2rem'
+heading.style.marginBottom = '1rem'
 
 
 
@@ -42,13 +43,15 @@ document.addEventListener('keyup', keyUp)
 function playthegame(){
     console.log('i am clicked')
     let  car = document.getElementById('car')
+    let road = gameArea.getBoundingClientRect()
+    console.log(road);
     if(player.start){   
 
 
-        if(keys.ArrowUp){player.y -= player.speed}
-        if(keys.ArrowDown){player.y += player.speed}
-        if(keys.ArrowLeft){player.x -= player.speed}
-        if(keys.ArrowRight){player.x += player.speed}
+        if(keys.ArrowUp && player.y > (road.top + 70)){player.y -= player.speed}
+        if(keys.ArrowDown && player.y < (road.bottom - 155)){player.y += player.speed}
+        if(keys.ArrowLeft && player.x > 0){player.x -= player.speed}
+        if(keys.ArrowRight && player.x < (road.width - 52)){player.x += player.speed}
 
 
             car.style.top = player.y + "px"
@@ -67,6 +70,15 @@ function start(){
     startScreen.classList.add('hide')
     player.start = true
     window.requestAnimationFrame(playthegame);
+
+   for(i=0; i<5; i++){
+    let roadline = document.createElement('div')
+    roadline.id = 'roadline';
+    roadline.style.top = (i*100) + "px"
+    gameArea.appendChild(roadline)
+   }
+
+
     let car = document.createElement('div')
     car.id= 'car'
     // car.innerText = 'this is car'
