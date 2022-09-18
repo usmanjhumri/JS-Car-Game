@@ -27,7 +27,7 @@ heading.style.marginTop = '2rem'
     }
 
 
-    let player = {}
+    let player = { speed:5 }
 
     let keys = {
         ArrowUp:false,
@@ -41,7 +41,21 @@ document.addEventListener('keyup', keyUp)
 
 function playthegame(){
     console.log('i am clicked')
-    if(player.start){
+    let  car = document.getElementById('car')
+    if(player.start){   
+
+
+        if(keys.ArrowUp){player.y -= player.speed}
+        if(keys.ArrowDown){player.y += player.speed}
+        if(keys.ArrowLeft){player.x -= player.speed}
+        if(keys.ArrowRight){player.x += player.speed}
+
+
+            car.style.top = player.y + "px"
+            car.style.left = player.x + "px"
+
+
+
 
         window.requestAnimationFrame(playthegame);
     }
@@ -57,5 +71,10 @@ function start(){
     car.id= 'car'
     // car.innerText = 'this is car'
     gameArea.appendChild(car)
+
+    player.y = car.offsetTop;
+    player.x = car.offsetLeft;
+    console.log("top pa itna hai " + car.offsetTop);
+    console.log( "left sa itna hai " + car.offsetLeft);
 }
 
